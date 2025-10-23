@@ -2,7 +2,7 @@
 
 ## Overview
 
-This playbook provides step-by-step guidance for deploying and maintaining your analytics intelligence system in production.
+This playbook provides step-by-step guidance for deploying and maintaining the analytics intelligence we chatted through in the workshop
 
 ## Table of Contents
 

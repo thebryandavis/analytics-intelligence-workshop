@@ -14,9 +14,9 @@ Build an automated analytics intelligence system that monitors your event data 2
 
 **3 Google Colab Notebooks** (no setup required, runs in browser):
 
-1. **[Setup & First Query](notebooks/COLAB_01_setup_and_first_query.ipynb)** - Connect to BigQuery, explore data
-2. **[AI-Generated SQL Checks](notebooks/COLAB_02_ai_generated_sql_checks.ipynb)** - Generate SQL with GPT, find issues
-3. **[Anomaly Detection & Alerts](notebooks/COLAB_03_anomaly_detection_and_alerts.ipynb)** - Classify findings, send Slack alerts
+1. **[Setup & First Query](https://tinyurl.com/nycpizza1)** - Connect to BigQuery, explore data
+2. **[AI-Generated SQL Checks](https://tinyurl.com/nycpizza2)** - Generate SQL with GPT, find issues
+3. **[Anomaly Detection & Alerts](https://tinyurl.com/nycpizza3)** - Classify findings, send Slack alerts
 
 **📖 Take-Home Guide:** [ATTENDEE-HANDOUT.md](ATTENDEE-HANDOUT.md) - Everything you need to deploy this at your org
 

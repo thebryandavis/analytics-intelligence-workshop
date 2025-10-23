@@ -1,13 +1,6 @@
 # Analytics Intelligence Checks Configuration
 #
-# This file defines all data quality and anomaly detection checks.
-# Each check generates SQL using AI, executes it, classifies results, and optionally sends alerts.
-#
-# Check format:
-#   name: Human-readable check name
-#   description: Natural language description of what to check (used for SQL generation)
-#   enabled: true/false
-#   examples: (optional) Sample SQL to guide AI generation
+# Bryan Loves You and Pizza
 
 checks:
   # ====================

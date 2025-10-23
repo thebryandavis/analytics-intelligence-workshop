@@ -50,6 +50,6 @@ Colab is like Google Docs for code:
 
 ## Need Help?
 
-- **During workshop:** Ask in chat or raise hand
+
 - **After workshop:** Email brdavis@ap.org
-- **Anytime:** Check the [ATTENDEE-HANDOUT.md](../ATTENDEE-HANDOUT.md)
+

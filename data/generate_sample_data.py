@@ -3,17 +3,6 @@ Generate sample news analytics data for NPA workshop.
 
 Creates realistic GA4-style event data with planted problems and opportunities:
 
-PROBLEMS:
-1. iOS scroll_depth events stop after 2pm on Day 3
-2. 15% of events missing consent_state (GDPR issue)
-3. PII (email addresses) in page_location URLs
-4. Duplicate events (same user + timestamp)
-
-OPPORTUNITIES:
-1. Newsletter signups jump 45% on Day 4
-2. Weekend mobile readers stay 2x longer
-3. New referral source (reddit.com) with high engagement
-4. Push notification clicks spike Tuesday mornings
 """
 
 import pandas as pd

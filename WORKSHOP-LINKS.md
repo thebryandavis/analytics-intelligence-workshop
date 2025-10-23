@@ -8,17 +8,17 @@
 ### Notebook 1: Setup & First Query
 **What:** Connect to BigQuery, explore sample data
 **Time:** ~25 minutes
-**Link:** [Open in Colab](notebooks/COLAB_01_setup_and_first_query.ipynb)
+**Link:** [Open in Colab](https://tinyurl.com/nycpizza1)
 
 ### Notebook 2: AI-Generated SQL Checks
 **What:** Generate SQL with GPT, find problems & opportunities
 **Time:** ~25 minutes
-**Link:** [Open in Colab](notebooks/COLAB_02_ai_generated_sql_checks.ipynb)
+**Link:** [Open in Colab](https://tinyurl.com/nycpizza2)
 
 ### Notebook 3: Anomaly Detection & Alerts
 **What:** Classify findings, send Slack alerts, deploy
 **Time:** ~30 minutes
-**Link:** [Open in Colab](notebooks/COLAB_03_anomaly_detection_and_alerts.ipynb)
+**Link:** [Open in Colab](https://tinyurl.com/nycpizza3)
 
 ---
 
@@ -37,6 +37,8 @@
 ---
 
 ## 📚 Resources
+
+**All workshop materials:** [tinyurl.com/onlynycpizza](https://tinyurl.com/onlynycpizza)
 
 **Take-home guide:** [ATTENDEE-HANDOUT.md](ATTENDEE-HANDOUT.md) - Everything you need to deploy
 
@@ -76,4 +78,4 @@
 
 ---
 
-**Ready? Start with [Notebook 1](notebooks/COLAB_01_setup_and_first_query.ipynb)** 🎯
+**Ready? Start with [Notebook 1](https://tinyurl.com/nycpizza1)** 🎯
