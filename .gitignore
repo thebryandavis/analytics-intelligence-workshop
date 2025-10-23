@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+
+# API Keys and Credentials
+*credentials*.json
+*service-account*.json
+YOUR-WORKSHOP-CREDENTIALS.md
+
+# Large data files (keep small samples only)
+*.csv
+!sample_*.csv
+workshop-materials/data/*.csv
+
+# Presenter-only materials (keep these private)
+workshop-materials/PRESENTER-*.md
+workshop-materials/DEMO-CHEAT-SHEET.md
+workshop-materials/DAY-OF-CHECKLIST.md
+workshop-materials/PRACTICE-RUN-GUIDE.md
+workshop-materials/TOMORROW-MORNING-CHECKLIST.md
+workshop-materials/QUICK-UPLOAD-GUIDE.md
+workshop-materials/FLIGHT-*.md
+workshop-materials/TODO-BEFORE-WORKSHOP.md
+workshop-materials/UPDATED-SLIDE-FLOW.md
+workshop-materials/COLAB-SHARING-GUIDE.md
+workshop-materials/NPA-Workshop-Slides.md
+chat-history-*.md
+npa-workshop.md
+WORKSHOP-COMPLETE.md
+for-attendees/
+
+# Logs
+*.log

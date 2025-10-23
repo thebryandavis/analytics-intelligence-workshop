@@ -1,0 +1,92 @@
+[
+  {
+    "name": "event_timestamp",
+    "type": "INTEGER",
+    "mode": "REQUIRED",
+    "description": "Event timestamp in microseconds since epoch"
+  },
+  {
+    "name": "event_datetime",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE",
+    "description": "Event timestamp as human-readable datetime"
+  },
+  {
+    "name": "event_date",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Event date in YYYYMMDD format"
+  },
+  {
+    "name": "event_name",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Name of the event (page_view, scroll_depth, click, etc.)"
+  },
+  {
+    "name": "user_pseudo_id",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "GA4-style user pseudo ID"
+  },
+  {
+    "name": "session_id",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Session identifier"
+  },
+  {
+    "name": "platform",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Platform (web, ios, android)"
+  },
+  {
+    "name": "device_category",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Device category (mobile, desktop, tablet)"
+  },
+  {
+    "name": "geo_country",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Country code"
+  },
+  {
+    "name": "referrer",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Referrer URL or source"
+  },
+  {
+    "name": "page_location",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Full page URL"
+  },
+  {
+    "name": "article_id",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Article identifier"
+  },
+  {
+    "name": "section",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Content section (politics, sports, etc.)"
+  },
+  {
+    "name": "consent_state",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "User consent state (granted, denied, or null)"
+  },
+  {
+    "name": "engagement_time_msec",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "Engagement time in milliseconds"
+  }
+]

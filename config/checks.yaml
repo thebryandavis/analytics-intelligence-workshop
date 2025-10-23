@@ -1,0 +1,189 @@
+# Analytics Intelligence Checks Configuration
+#
+# This file defines all data quality and anomaly detection checks.
+# Each check generates SQL using AI, executes it, classifies results, and optionally sends alerts.
+#
+# Check format:
+#   name: Human-readable check name
+#   description: Natural language description of what to check (used for SQL generation)
+#   enabled: true/false
+#   examples: (optional) Sample SQL to guide AI generation
+
+checks:
+  # ====================
+  # DATA QUALITY CHECKS
+  # ====================
+
+  - name: "Missing Consent State"
+    description: |
+      Find events where consent_state is NULL (missing GDPR consent).
+      Group by event_date and platform to identify patterns.
+      Calculate percentage of events missing consent.
+      Flag dates where more than 10% are missing.
+    enabled: true
+
+  - name: "Missing Required Fields"
+    description: |
+      Check for events with NULL values in required fields:
+      - user_pseudo_id
+      - event_name
+      - event_timestamp
+      Group by event_date and show counts.
+    enabled: true
+
+  - name: "Invalid Event Names"
+    description: |
+      Find event_name values that don't match expected patterns.
+      Expected events: page_view, scroll_depth, click, newsletter_signup,
+      push_notification_click, video_play, search.
+      Flag any event names not in this list.
+    enabled: false  # Disable if you have custom events
+
+  # ====================
+  # TRACKING BREAKS
+  # ====================
+
+  - name: "iOS Scroll Depth Tracking Break"
+    description: |
+      Detect when iOS scroll_depth events drop abnormally low.
+      Compare hourly event counts for iOS + scroll_depth across all days.
+      Flag hours where count falls below 1000 events (or zero).
+      Show event_date, hour, platform, and event count.
+    enabled: true
+
+  - name: "Platform Event Volume Drop"
+    description: |
+      Find days where event volume for any platform drops more than 30%
+      compared to the 7-day average.
+      Group by event_date and platform.
+      Calculate percentage change from baseline.
+    enabled: true
+
+  - name: "Event Type Disappearance"
+    description: |
+      Detect when a previously common event_name stops appearing.
+      Find event types that appeared in the first half of data
+      but not in the last 24 hours.
+    enabled: true
+
+  # ====================
+  # PRIVACY & COMPLIANCE
+  # ====================
+
+  - name: "PII in Page URLs"
+    description: |
+      Find events where page_location contains personally identifiable information.
+      Look for patterns: email=, user_email=, ssn=, credit_card=
+      Use REGEXP_CONTAINS to detect email addresses.
+      Show event_date, platform, page_location (first 100 chars), and count.
+      Limit to 10 examples.
+    enabled: true
+
+  - name: "PII in Custom Dimensions"
+    description: |
+      Check article_id and section fields for potential PII.
+      Look for email patterns, phone numbers, or suspicious strings.
+      This is critical for GDPR compliance.
+    enabled: false  # Enable if you use custom dimensions
+
+  # ====================
+  # DATA INTEGRITY
+  # ====================
+
+  - name: "Duplicate Events"
+    description: |
+      Find duplicate events where the same user_pseudo_id and event_timestamp
+      appear multiple times.
+      Group by user_pseudo_id, event_timestamp.
+      Count duplicates and show top 20 by frequency.
+      Include event_name and session_id for context.
+    enabled: true
+
+  - name: "Suspicious Engagement Times"
+    description: |
+      Find events with engagement_time_msec that seems unrealistic.
+      Flag values > 1 hour (3,600,000 ms) or negative values.
+      These indicate tracking bugs.
+    enabled: true
+
+  - name: "Session ID Reuse"
+    description: |
+      Detect when the same session_id is used across different users or dates.
+      This indicates session tracking is broken.
+      Group by session_id and count distinct users and dates.
+    enabled: false  # Can be noisy, enable if you suspect issues
+
+  # ====================
+  # OPPORTUNITY DETECTION
+  # ====================
+
+  - name: "Newsletter Signup Spike"
+    description: |
+      Find days where newsletter_signup events increased significantly.
+      Calculate daily signup counts and compare to 7-day average.
+      Flag increases > 30% as opportunities to investigate.
+      Show event_date, signup count, baseline, and percentage change.
+    enabled: true
+
+  - name: "High-Value Traffic Sources"
+    description: |
+      Find referrer sources with above-average engagement.
+      Calculate average engagement_time_msec per referrer.
+      Flag referrers with engagement > 1.5x overall average.
+      Show referrer, event count, unique users, avg engagement.
+    enabled: true
+
+  - name: "Content Section Performance Spike"
+    description: |
+      Detect content sections (politics, sports, etc.) with unusual performance.
+      Compare recent page_view counts by section to historical average.
+      Flag sections with > 50% increase.
+    enabled: true
+
+  - name: "New Referrer Sources"
+    description: |
+      Find referrer sources that appeared in the last 3 days
+      but were not present in the previous 4 days.
+      This indicates new traffic channels worth investigating.
+      Show referrer, first appearance date, event count, avg engagement.
+    enabled: true
+
+  - name: "Weekend vs Weekday Patterns"
+    description: |
+      Compare user behavior between weekends and weekdays.
+      Calculate average engagement_time_msec, events per user, etc.
+      Flag if weekend engagement is significantly different (> 50%).
+      This is an insight, not necessarily a problem.
+    enabled: true
+
+  - name: "Device Category Shifts"
+    description: |
+      Detect shifts in device_category distribution (mobile vs desktop vs tablet).
+      Compare last 24 hours to previous 6 days.
+      Flag if any category changes by more than 20%.
+    enabled: false  # Enable if you care about device trends
+
+  # ====================
+  # BUSINESS METRICS
+  # ====================
+
+  - name: "Video Play Rate Drop"
+    description: |
+      Compare video_play events to page_view events as a ratio.
+      Calculate play rate by day: video_plays / page_views.
+      Flag days where rate drops below 4% (typical baseline is 5%).
+    enabled: true
+
+  - name: "Push Notification Click Spike"
+    description: |
+      Detect when push_notification_click events spike abnormally.
+      Compare daily/hourly counts to baseline.
+      Flag increases > 100% (might indicate campaign launch or bot traffic).
+    enabled: true
+
+  - name: "Search Usage Patterns"
+    description: |
+      Analyze search event patterns by day and hour.
+      Identify peak search times and any unusual drops.
+      This helps optimize search infrastructure.
+    enabled: false  # Enable if search is a key feature
