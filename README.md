@@ -1,10 +1,30 @@
 # Analytics Intelligence Workshop
 ### News Product Alliance Summit 2025
 
-Build an automated analytics intelligence system that monitors your event data 24/7 and alerts you to both problems and opportunities using BigQuery + AI.
+A system for catching broken tracking and unusual growth patterns before they disappear into a dashboard.
+
+**Status:** Shipped workshop and reference implementation
+**Built for:** Product, analytics, and growth teams
+**My role:** Product concept, data model, checks, workflow, and workshop
+
+## What I was trying to learn
+
+Can an analytics system do more than report numbers? This project tests whether it can identify a problem or opportunity, explain why it matters, and suggest a reasonable next check.
+
+## What I built
+
+BigQuery, Python, notebooks, configurable checks, and Slack alerts. The sample data includes planted tracking breaks and growth changes so the workflow can be run end to end.
+
+## What remains unproven
+
+The hard part is deciding which findings deserve attention and showing enough evidence for someone to trust the alert. The repository includes the workflow; a production team would still need to tune thresholds against its own data.
+
+## Next step
+
+Add evaluation cases for false positives, PII checks, and missing-consent data before asking a team to run it continuously.
 
 **Presented by:** Bryan Davis, Director of Product (Data & Analytics), The Associated Press
-**Cost to run:** < $15/month | **Setup time:** 1-2 hours | **Skills needed:** Copy/paste
+**Cost to run:** < $15/month | **Setup time:** 1-2 hours
 
 ---
 
